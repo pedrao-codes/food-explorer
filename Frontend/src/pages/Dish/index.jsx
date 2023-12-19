@@ -1,6 +1,8 @@
-import { useMenu } from "../../hooks/useMenu"
+import { 
+    Container, Main, Ingredients, Tag, Request, Count, WrapButton, Profile
+} from "./styles";
 
-import { Container, Main, Ingredients, Tag, Request, Count, WrapButton } from "./styles";
+import { useMenu } from "../../hooks/useMenu"
 
 import { HeaderUser } from "../../components/HeaderUser";
 import { Menu } from "../../components/Menu";
@@ -21,12 +23,14 @@ export function Dish() {
 
             <Main>
                 <WrapButton>
-                    <DynamicButton
-                        icon={CaretLeft}
-                        iconSize={32}
-                        text="voltar"
-                        additionalStyles={{fontSize: "2.4rem"}}
-                    />
+                    <Profile to="/">
+                        <DynamicButton
+                            icon={CaretLeft}
+                            iconSize={32}
+                            text="voltar"
+                            additionalStyles={{fontSize: "2.4rem"}}
+                        />
+                    </Profile>
                 </WrapButton>
 
                 <img src="../../../assets/foods/salad_2.svg" alt="salada" />

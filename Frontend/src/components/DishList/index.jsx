@@ -1,4 +1,4 @@
-import { Container, List, Card, DishInfo, Price, Count } from "./styles";
+import { Container, List, Card, DishInfo, Price, Count, Profile } from "./styles";
 
 import { Heart, Minus, Plus } from "@phosphor-icons/react";
 
@@ -20,7 +20,7 @@ const dishes = [
     }
 ]
 
-export function DishList({title}) {
+export function DishList({title, page}) {
     return(
         <Container>
             <h1>{title}</h1>
@@ -43,7 +43,9 @@ export function DishList({title}) {
                                 <DishInfo>
                                     <img src={dish.img} alt={dish.alt} />
 
-                                    <DynamicButton text={`${dish.name} >`} />
+                                    <Profile to={page}>
+                                        <DynamicButton text={`${dish.name} >`} />
+                                    </Profile>
 
                                     <Price>{dish.price}</Price>
                                     

@@ -1,6 +1,6 @@
-import { useMenu } from "../../hooks/useMenu";
-
 import { Container, Banner } from "./styles";
+
+import { useMenu } from "../../hooks/useMenu";
 
 import { HeaderUser } from "../../components/HeaderUser";
 import { Footer } from "../../components/Footer";
@@ -23,7 +23,7 @@ export function Home() {
                 <p> Sinta o cuidado do preparo com ingredientes selecionados.</p>
             </Banner>
 
-            <DishList title="Refeições" />
+            <DishList title="Refeições" page="/dish" />
 
             <Footer />
         </Container>

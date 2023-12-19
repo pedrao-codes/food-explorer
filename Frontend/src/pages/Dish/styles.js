@@ -1,9 +1,9 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+
 import theme from "../../styles/theme";
 
-export const Container = styled.div`
-    
-`
+export const Container = styled.div``
 
 export const Main = styled.main`
     display: flex;
@@ -69,4 +69,8 @@ export const Count = styled.div`
     font-size: 2.2rem;
     font-family: Roboto, sans-serif;
     font-weight: 700;
+`
+
+export const Profile = styled(Link)`
+    text-decoration: none;
 `

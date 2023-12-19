@@ -1,4 +1,4 @@
-import { Container } from "./styles"
+import { Container, Profile } from "./styles"
 
 import { Input } from "../../components/Input"
 import { Button } from "../../components/Button"
@@ -34,13 +34,15 @@ export function SignUp() {
                     padding="1.2rem 0"
                 />
 
-                <DynamicButton 
-                    text="Criar uma conta" 
-                    additionalStyles={{
-                        fontWeight: "500",
-                        fontSize: "1.4rem"
-                    }}
-                />
+                <Profile to="/">
+                    <DynamicButton
+                        text="Já tenho uma conta"
+                        additionalStyles={{
+                            fontWeight: "500",
+                            fontSize: "1.4rem"
+                        }}
+                    />
+                </Profile>
             </form>
         </Container>
     )

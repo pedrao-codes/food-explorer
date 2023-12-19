@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.section`
     position: relative;
@@ -68,4 +69,8 @@ export const Count = styled.span`
     padding: 4px 0;
 
     color: ${({theme}) => theme.COLORS.LIGHT_300};
+`
+
+export const Profile = styled(Link)`
+    text-decoration: none;
 `
