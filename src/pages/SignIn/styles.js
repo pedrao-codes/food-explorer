@@ -5,12 +5,11 @@ export const Container = styled.div`
     height: 100vh;
     
     padding: 15.8rem 5.6rem 0 5.6rem;
-    
-    text-align: center;
 
     > form {
         display: flex;
         flex-direction: column;
+        align-items: center;
         gap: 3.2rem;
 
         margin-top: 7.3rem;

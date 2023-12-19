@@ -10,6 +10,8 @@ export const Container = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
+    width: max-content;
+    cursor: pointer;
     
     > svg {
         color: ${({theme}) => theme.COLORS.LIGHT_100};

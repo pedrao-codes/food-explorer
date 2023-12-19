@@ -5,6 +5,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     gap: .8rem;
+    width: 100%;
 
     > label, input {
         font: 1.6rem Roboto, sans-serif;
