@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import styled from "styled-components";
 import theme from "../../styles/theme"
 
@@ -35,4 +36,17 @@ export const Navigation = styled.nav`
             border-bottom: 1px solid ${({theme}) => theme.COLORS.DARK_1000};
         }
     }
+=======
+import styled from "styled-components";
+import theme from "../../styles/theme"
+
+export const Container = styled.div`
+    background: ${({theme}) => theme.COLORS.DARK_400};
+
+    position: fixed;
+    transform: translateX(-100vw);
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+>>>>>>> 0b4351fb94805bd9fc9015640294948de6257008
 `
