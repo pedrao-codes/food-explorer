@@ -1,6 +1,6 @@
 import { Container, Content } from "./styles"
 
-export function Input({icon: Icon, label, type, placeholder}) {
+export function Input({icon: Icon, label, type, placeholder, ...rest}) {
     return(
         <Container>
             {label ? <label>{label}</label> : null}
@@ -11,6 +11,7 @@ export function Input({icon: Icon, label, type, placeholder}) {
                 <input
                     type={type}
                     placeholder={placeholder}
+                    {...rest}
                 />
             </Content>
         </Container>

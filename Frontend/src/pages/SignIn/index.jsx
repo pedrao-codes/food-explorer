@@ -4,13 +4,14 @@ import { Input } from "../../components/Input"
 import { Button } from "../../components/Button"
 import { DynamicButton } from "../../components/DynamicButton"
 import { Logo } from "../../components/Logo"
+import { Form } from "../../components/Form"
 
 export function SignIn() {
     return(
         <Container>
             <Logo />
 
-            <form>
+            <Form>
                 <Input
                     label="E-mail"
                     type="text"
@@ -37,7 +38,7 @@ export function SignIn() {
                         }}
                     />
                 </Profile>
-            </form>
+            </Form>
         </Container>
     )
 }
