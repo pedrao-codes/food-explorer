@@ -1,6 +1,6 @@
 import { Container, Banner } from "./styles";
 
-import { useMenu } from "../../hooks/useMenu";
+import { useMenu } from "../../hooks/menu";
 
 import { HeaderUser } from "../../components/HeaderUser";
 import { Footer } from "../../components/Footer";

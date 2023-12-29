@@ -2,7 +2,7 @@ import {
     Container, Main, Ingredients, Tag, Request, Count, WrapButton, Profile
 } from "./styles";
 
-import { useMenu } from "../../hooks/useMenu"
+import { useMenu } from "../../hooks/menu"
 
 import { HeaderUser } from "../../components/HeaderUser";
 import { Menu } from "../../components/Menu";
