@@ -12,7 +12,7 @@ export function Home() {
 
     return(
         <Container>
-            {menu && <Menu isOpen={menu} toggleMenu={toggleMenu} />}
+            {menu && <Menu toggleMenu={toggleMenu} />}
 
             <HeaderUser toggleMenu={toggleMenu} />
 

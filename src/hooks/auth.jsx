@@ -9,6 +9,8 @@ export const AuthContext = createContext({})
 
 function AuthProvider({children}) {
     const [data, setData] = useState("")
+    const userCookie = "@food-explorer:user"
+    const tokenCookie = "@food-explorer:token"
 
     async function signIn({email, password}) {
         try {
@@ -17,8 +19,8 @@ function AuthProvider({children}) {
 
             api.defaults.headers.authorization = `Bearer ${token}`
 
-            Cookies.set("@food-explorer:user", JSON.stringify(user), {expires: 1})
-            Cookies.set("@food-explorer:token", token, {expires: 1})
+            Cookies.set(userCookie, JSON.stringify(user), {expires: 1})
+            Cookies.set(tokenCookie, token, {expires: 1})
 
             setData({user, token})
         } catch(error) {
@@ -30,9 +32,16 @@ function AuthProvider({children}) {
         }
     }
 
+    function signOut() {
+        Cookies.remove(userCookie)
+        Cookies.remove(tokenCookie)
+
+        setData({})
+    }
+
     useEffect(() => {
-        const token = Cookies.get("@food-explorer:token")
-        const user = Cookies.get("@food-explorer:user")
+        const user = Cookies.get(userCookie)
+        const token = Cookies.get(tokenCookie)
     
         if (token && user) {
           api.defaults.headers.authorization = `Bearer ${token}`
@@ -45,7 +54,7 @@ function AuthProvider({children}) {
       }, [])
 
     return(
-        <AuthContext.Provider value={{signIn, user: data.user}}>
+        <AuthContext.Provider value={{signIn, signOut, user: data.user}}>
             {children}
         </AuthContext.Provider>
     )

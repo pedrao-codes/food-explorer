@@ -7,7 +7,19 @@ import { Input } from "../Input"
 
 import { X, MagnifyingGlass } from "@phosphor-icons/react"
 
+import { useAuth } from "../../hooks/auth"
+import { useNavigate } from "react-router-dom"
+
 export function Menu({toggleMenu}) {
+    const { signOut } = useAuth()
+    const navigate = useNavigate()
+
+    function handleSignOut() {
+        toggleMenu()
+        signOut()
+        navigate("/")
+    }
+
     return(
         <Container>
             <Header>
@@ -33,7 +45,7 @@ export function Menu({toggleMenu}) {
 
                 <Navigation>
                     <ul>
-                        <li>Sair</li>
+                        <li onClick={handleSignOut}>Sair</li>
                     </ul>
                 </Navigation>
             </Options>
