@@ -8,8 +8,9 @@ export const Container = styled.button`
     gap: 6px;
     width: 100%;
     padding: ${props => props.$padding};
+    margin: ${props => props.$margin};
     
-    background: ${({theme}) => theme.COLORS.TOMATO_100};
+    background: ${props => props.$background ? props.$background : ({theme}) => theme.COLORS.TOMATO_100};
     color: ${({theme}) => theme.COLORS.LIGHT_100};
     font-size: 1.4rem;
     border: none;

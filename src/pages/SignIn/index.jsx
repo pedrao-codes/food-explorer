@@ -21,7 +21,7 @@ export function SignIn() {
 
     return(
         <Container>
-            <Logo />
+            <Logo height="4.7rem" />
 
             <Form>
                 <Input

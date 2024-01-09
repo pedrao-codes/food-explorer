@@ -11,13 +11,18 @@ import { useAuth } from "../../hooks/auth"
 import { useNavigate } from "react-router-dom"
 
 export function Menu({toggleMenu}) {
-    const { signOut } = useAuth()
     const navigate = useNavigate()
+    const { signOut, user } = useAuth()
+    const isAdmin = user && user.isAdmin
 
     function handleSignOut() {
         toggleMenu()
         signOut()
         navigate("/")
+    }
+
+    function handleCreateDish() {
+        navigate("/dish/create")
     }
 
     return(
@@ -45,6 +50,12 @@ export function Menu({toggleMenu}) {
 
                 <Navigation>
                     <ul>
+                        {
+                            isAdmin 
+                            ? <li onClick={handleCreateDish}>Novo prato</li> 
+                            : null
+                        }
+
                         <li onClick={handleSignOut}>Sair</li>
                     </ul>
                 </Navigation>

@@ -38,7 +38,6 @@ export const DishInfo = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 1.2rem;
-    margin-bottom: 1.6rem;
 
     > img {
         width: 8.8rem;
@@ -58,6 +57,20 @@ export const DishInfo = styled.div`
 
 export const Price = styled.span`
     color: ${({theme}) => theme.COLORS.CAKE_200};
+    margin-bottom: ${props => props.$isAdmin ? '7rem' : '0'};
+`
+
+export const Controls = styled.div`
+    display: ${props => props.$isAdmin ? 'none' : 'flex'};
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 1.2rem;
+
+    > span {
+        font-family: Roboto, sans-serif;
+        font-size: 1.6rem;
+    }
 `
 
 export const Count = styled.span`

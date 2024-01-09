@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-
 import theme from "../../styles/theme";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div``
 
@@ -54,7 +53,7 @@ export const Tag = styled.span`
 `
 
 export const Request = styled.div`
-    display: flex;
+    display: ${props => props.$isAdmin ? 'none' : 'flex'};
     gap: 1.6rem;
 
     width: 100%;

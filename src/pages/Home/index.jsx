@@ -1,6 +1,7 @@
 import { Container, Banner } from "./styles";
 
 import { useMenu } from "../../hooks/menu";
+import { useProducts } from "../../hooks/products";
 
 import { HeaderUser } from "../../components/HeaderUser";
 import { Footer } from "../../components/Footer";
@@ -8,7 +9,15 @@ import { DishList } from "../../components/DishList";
 import { Menu } from "../../components/Menu";
 
 export function Home() {
-    const {menu, toggleMenu} = useMenu()
+    const { menu, toggleMenu } = useMenu()
+    const { products } = useProducts()
+    const categoriesSet = new Set()
+
+    Object.values(products).map(product => {
+        categoriesSet.add(product.category)
+    })
+
+    const categories = Array.from(categoriesSet)
 
     return(
         <Container>
@@ -23,7 +32,16 @@ export function Home() {
                 <p> Sinta o cuidado do preparo com ingredientes selecionados.</p>
             </Banner>
 
-            <DishList title="Refeições" page="/dish" />
+            {
+                categories.map(category => {
+                    const productsByCategory = 
+                        Object.values(products).filter(product => (
+                            product.category == category
+                        ))
+
+                    return <DishList key={category} title={category} dishes={productsByCategory} />
+                })
+            }
 
             <Footer />
         </Container>

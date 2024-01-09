@@ -1,37 +1,38 @@
-import { Container, List, Card, DishInfo, Price, Count, Profile } from "./styles";
+import { 
+    Container, List, Card, DishInfo, Price, Count, Profile, Controls 
+} from "./styles";
 
-import { Heart, Minus, Plus } from "@phosphor-icons/react";
+import { Heart, Minus, Pencil, Plus } from "@phosphor-icons/react";
 
 import { DynamicButton } from "../DynamicButton";
 import { Button } from "../Button";
 
-const dishes = [
-    {
-        name: "Salada Ravanello",
-        price: "R$ 49,97",
-        img: "../../../assets/foods/salad_2.svg",
-        alt: "salada ravanello"
-    },
-    {
-        name: "Spaguetti Gambe",
-        price: "R$ 79,97",
-        img: "../../../assets/foods/shrimp.svg",
-        alt: "spaguetti de camarão"
-    }
-]
+import { api } from "../../services/api";
+import { useAuth } from "../../hooks/auth";
 
-export function DishList({title, page}) {
+export function DishList({title, dishes}) {
+    const { user } = useAuth()
+    const isAdmin = user && user.isAdmin
+
+    const productPlaceholder = "../../../assets/food_placeholder.svg"
+
+    function findImage(dish) {
+        const productImgUrl = dish.image ? `${api.defaults.baseURL}/files/${dish.image}` : productPlaceholder
+
+        return productImgUrl
+    }
+
     return(
         <Container>
             <h1>{title}</h1>
 
             <List>
                 {
-                    dishes.map((dish) => {
+                    dishes.map(dish => {
                         return(
-                            <Card key={dish.name}>
+                            <Card key={dish.product_id}>
                                 <DynamicButton
-                                    icon={Heart}
+                                    icon={isAdmin ? Pencil : Heart}
                                     iconSize={24}
                                     additionalStyles={{
                                         position: "absolute",
@@ -41,31 +42,40 @@ export function DishList({title, page}) {
                                 />
 
                                 <DishInfo>
-                                    <img src={dish.img} alt={dish.alt} />
+                                    <img
+                                        src={findImage(dish)}
+                                        alt={dish.name}
+                                    />
 
-                                    <Profile to={page}>
-                                        <DynamicButton text={`${dish.name} >`} />
+                                    <Profile to={`/dish/${dish.product_id}`}>
+                                        <DynamicButton 
+                                            text={`${dish.name} >`} 
+
+                                        />
                                     </Profile>
-
-                                    <Price>{dish.price}</Price>
                                     
-                                    <Count>
-                                        <DynamicButton 
-                                            icon={Minus}
-                                            iconSize={24}
+                                    <Price $isAdmin={isAdmin}>{dish.price}</Price>
+
+                                    <Controls $isAdmin={isAdmin}>
+                                        <Count>
+                                            <DynamicButton
+                                                icon={Minus}
+                                                iconSize={24}
+                                            />
+                                            01
+                                            <DynamicButton
+                                                icon={Plus}
+                                                iconSize={24}
+                                            />
+                                        </Count>
+                                        <Button
+                                            text="incluir"
+                                            padding="1.2rem 0"
                                         />
-                                        01
-                                        <DynamicButton 
-                                            icon={Plus}
-                                            iconSize={24}
-                                        />
-                                    </Count>
+                                    </Controls>
                                 </DishInfo>
                                 
-                                <Button
-                                    text="incluir"
-                                    padding="1.2rem 0"
-                                />
+
                             </Card>
                         )
                     })
