@@ -6,7 +6,7 @@ export function Form({children, ...rest}) {
     }
 
     return(
-        <Container onSubmit={handleSubmit}>
+        <Container onSubmit={handleSubmit} {...rest}>
             {children}
         </Container>
     )

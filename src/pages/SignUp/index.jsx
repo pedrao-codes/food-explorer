@@ -1,4 +1,4 @@
-import { Container, Profile } from "./styles"
+import { Container, LogoWrapper, Profile } from "./styles"
 
 import { Input } from "../../components/Input"
 import { Button } from "../../components/Button"
@@ -37,9 +37,13 @@ export function SignUp() {
 
     return(
         <Container>
-            <Logo />
+            <LogoWrapper>
+                <Logo />
+            </LogoWrapper>
 
             <Form>
+                <h1>Crie sua Conta</h1>
+
                 <Input
                     label="Nome"
                     type="text"

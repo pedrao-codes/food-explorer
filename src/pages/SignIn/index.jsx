@@ -1,4 +1,4 @@
-import { Container, Profile } from "./styles"
+import { Container, LogoWrapper, Profile } from "./styles"
 
 import { useState } from "react"
 import { useAuth } from "../../hooks/auth"
@@ -21,9 +21,13 @@ export function SignIn() {
 
     return(
         <Container>
-            <Logo height="4.7rem" />
+            <LogoWrapper>
+                <Logo height="4.7rem" />
+            </LogoWrapper>
 
             <Form>
+                <h1>Faça Login</h1>
+
                 <Input
                     label="E-mail"
                     type="text"
