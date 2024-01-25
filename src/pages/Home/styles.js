@@ -36,13 +36,18 @@ export const Banner = styled.section`
     border-radius: .3rem;
 
     position: relative;
-    margin: 4.4rem 1.6rem 6.2rem 3.6rem;
-    padding-left: 15.3rem;
+    margin-top: clamp(4.4rem, 0.5rem + 12vw , 17.2rem);
+    margin-right: clamp(1.6rem, -4rem + 9vw, 12.4rem);
+    margin-bottom: 6.2rem;
+    margin-left: clamp(3.6rem, -4rem + 9vw, 12.4rem);
+    padding-left: clamp(16rem, 10rem + 14vw, 60rem);
+    padding-right: 1.5rem;
     height: 12rem;
 
     > img {
         position: absolute;
         bottom: 0; left: -30px;
+        width: clamp(191px, 13rem + 14vw, 632px);
     }
 
     > h1, p {
@@ -50,13 +55,13 @@ export const Banner = styled.section`
     }
 
     > h1 {
-        font-size: 1.8rem;
+        font-size: clamp(1.8rem, 1rem + 1vw, 4rem);
         font-weight: 600;
 
         padding: 3.6rem 0 .3rem;
     }
 
     > p {
-        font-size: 12px;
+        font-size: clamp(1.2rem, 0.5rem + 1vw, 1.6rem);
     }
 `

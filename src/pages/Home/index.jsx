@@ -26,7 +26,7 @@ export function Home() {
             <HeaderUser toggleMenu={toggleMenu} />
 
             <Banner>
-                <img src="../../../assets/colorful_cookies.png" alt="bolachas coloridas" />
+                <img src="../../../assets/colorful_cookies.png" alt="bolachas coloridas"/>
 
                 <h1>Sabores inigualáveis</h1>
                 <p> Sinta o cuidado do preparo com ingredientes selecionados</p>

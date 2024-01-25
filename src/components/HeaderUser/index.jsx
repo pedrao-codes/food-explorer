@@ -13,13 +13,20 @@ import { Button } from "../Button";
 import { List, Receipt, MagnifyingGlass, SignOut } from "@phosphor-icons/react";
 
 import { useAuth } from "../../hooks/auth";
+import { useNavigate } from "react-router-dom";
 
 export function HeaderUser({toggleMenu}) {
     const MDBreakpoint = useMediaQuery(`(max-width:${DEVICE_BREAKPOINTS.MD})`)
-    const LGBreakpoint = useMediaQuery(`(max-width:${DEVICE_BREAKPOINTS.LG})`)
 
-    const { user } = useAuth()
+    const { signOut, user } = useAuth()
     const isAdmin = user && user.isAdmin
+
+    const navigate = useNavigate()
+
+    function handleSignOut() {
+        signOut()
+        navigate("/")
+    }
 
     return(
         <Header>
@@ -47,10 +54,10 @@ export function HeaderUser({toggleMenu}) {
                         placeholder="Busque por pratos ou ingredientes"
                         maxWidth="5.5rem"
                     />
-
+                    
                     <Button
-                        icon={Receipt}
-                        text={`Pedidos (0)`}
+                        icon={isAdmin ? null : Receipt}
+                        text={isAdmin ? "Novo prato" : `Pedidos (0)`}
                         padding="1.2rem 0"
                         maxWidth="15.2rem"
                     />
@@ -58,6 +65,7 @@ export function HeaderUser({toggleMenu}) {
                     <DynamicButton
                         icon={SignOut}
                         iconSize={24}
+                        onClick={handleSignOut}
                     />
                 </HeaderComponentsWrapper>
             }
