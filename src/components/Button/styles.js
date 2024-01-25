@@ -7,6 +7,7 @@ export const Container = styled.button`
     align-items: center;
     gap: 6px;
     width: 100%;
+    max-width: ${props => props.$maxWidth ? props.$maxWidth : "55rem"};
     padding: ${props => props.$padding};
     margin: ${props => props.$margin};
     

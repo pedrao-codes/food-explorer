@@ -1,6 +1,6 @@
 import { Container, Content } from "./styles"
 
-export function Input({icon: Icon, label, type, placeholder, ...rest}) {
+export function Input({icon: Icon, label, type, placeholder, maxWidth, ...rest}) {
     return(
         <Container>
             {label ? <label>{label}</label> : null}

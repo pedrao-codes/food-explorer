@@ -1,8 +1,8 @@
 import { Container } from "./styles"
 
-export function Button({icon: Icon, text, padding, ...rest}) {
+export function Button({icon: Icon, text, padding, maxWidth, ...rest}) {
     return(
-        <Container $padding={padding} {...rest}>
+        <Container $maxWidth={maxWidth} $padding={padding} {...rest}>
             {Icon && <Icon />}
             {text}
         </Container>

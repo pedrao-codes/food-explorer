@@ -18,7 +18,7 @@ export function Home() {
     })
 
     const categories = Array.from(categoriesSet)
-
+    
     return(
         <Container>
             {menu && <Menu toggleMenu={toggleMenu} />}
@@ -29,7 +29,7 @@ export function Home() {
                 <img src="../../../assets/colorful_cookies.png" alt="bolachas coloridas" />
 
                 <h1>Sabores inigualáveis</h1>
-                <p> Sinta o cuidado do preparo com ingredientes selecionados.</p>
+                <p> Sinta o cuidado do preparo com ingredientes selecionados</p>
             </Banner>
 
             {

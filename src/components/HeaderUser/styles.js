@@ -26,3 +26,10 @@ export const RequestsCount = styled.div`
     font-size: 1.4rem;
     font-weight: 500;
 `
+
+export const HeaderComponentsWrapper = styled.div`
+    display: flex;
+    justify-content: right;
+    gap: 3.2rem;
+    width: 100%;
+`
