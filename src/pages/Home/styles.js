@@ -33,21 +33,24 @@ export const RequestsCount = styled.div`
 
 export const Banner = styled.section`
     background: ${({theme}) => theme.COLORS.GRADIENTS_100};
-    border-radius: .3rem;
+    border-radius: .8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     position: relative;
     margin-top: clamp(4.4rem, 0.5rem + 12vw , 17.2rem);
     margin-right: clamp(1.6rem, -4rem + 9vw, 12.4rem);
     margin-bottom: 6.2rem;
     margin-left: clamp(3.6rem, -4rem + 9vw, 12.4rem);
-    padding-left: clamp(16rem, 10rem + 14vw, 60rem);
+    padding-left: clamp(15.3rem, 2.5rem + 33vw, 60rem);
     padding-right: 1.5rem;
-    height: 12rem;
+    height: clamp(12rem, 1rem + 19vw, 26rem);
 
     > img {
         position: absolute;
-        bottom: 0; left: -30px;
-        width: clamp(191px, 13rem + 14vw, 632px);
+        bottom: 0; left: -3rem;
+        width: clamp(19.1rem, 0.5rem + 39vw, 63.2rem);
     }
 
     > h1, p {
@@ -55,10 +58,10 @@ export const Banner = styled.section`
     }
 
     > h1 {
-        font-size: clamp(1.8rem, 1rem + 1vw, 4rem);
+        font-size: clamp(1.8rem, 0.5rem + 3vw, 4rem);
         font-weight: 600;
 
-        padding: 3.6rem 0 .3rem;
+        margin-bottom: .3rem;
     }
 
     > p {
