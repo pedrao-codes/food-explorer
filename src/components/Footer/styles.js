@@ -8,9 +8,10 @@ export const Container = styled.footer`
     justify-content: space-between;
     align-items: center;
     gap: 8px;
-
-    padding: 3rem clamp(2.4rem, 0.3rem + 5vw, 14.3rem);
     
+    padding: 3rem clamp(2.4rem, 0.3rem + 5vw, 14.3rem);
+    margin-top: auto;
+
     > span {
         font-size: 1.2rem;
     }

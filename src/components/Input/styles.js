@@ -15,6 +15,10 @@ export const Container = styled.div`
     > label, svg {
         color: ${({theme}) => theme.COLORS.LIGHT_400};
     }
+
+    > label {
+        width: max-content;
+    }
 `
 
 export const Content = styled.div`

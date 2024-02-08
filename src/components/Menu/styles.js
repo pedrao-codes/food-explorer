@@ -15,7 +15,6 @@ export const Container = styled.div`
 
 export const Options = styled.div`
     padding: 3.6rem 2.8rem 1.4rem 2.8rem;
-    height: 100%;
 `
 
 export const Navigation = styled.nav`

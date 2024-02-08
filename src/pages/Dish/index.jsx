@@ -1,5 +1,6 @@
 import { 
-    Container, Main, Ingredients, Tag, Request, Count, WrapButton, Profile
+    Container, Main, Ingredients, Tag, Request, Count, WrapButton,
+    ProductImageWrapper, ProductInfoWrapper
 } from "./styles";
 
 import { useMenu } from "../../hooks/menu";
@@ -65,52 +66,59 @@ export function Dish() {
                     />
                 </WrapButton>
 
-                <img src={productImgUrl} alt={product.name} />
+                <ProductImageWrapper>
+                    <img src={productImgUrl} alt={product.name} />
+                </ProductImageWrapper>
 
-                <h1>{product.name}</h1>
+                <ProductInfoWrapper>
+                    <h1>{product.name}</h1>
 
-                <p>{product.description}</p>
-                
-                <Ingredients>
-                {
-                    tags && tags.map(tag => (
-                        <Tag key={String(tag.id)}>
-                            {tag.name}
-                        </Tag>
-                    ))
-                }
-                </Ingredients>
+                    <p>{product.description}</p>
 
-                {
-                    isAdmin ? (
-                        <Button
-                            text="Editar prato"
-                            padding="1.2rem 0"
-                            $margin="4.8rem 0 0 0"
-                        />
-                    ) : (
-                        <Request>
-                            <Count>
-                                <DynamicButton
-                                    icon={Minus}
-                                    iconSize={27}
-                                />
-                                01
-                                <DynamicButton
-                                    icon={Plus}
-                                    iconSize={27}
-                                />
-                            </Count>
+                    {
+                        tags && tags.length > 0 &&
+                        <Ingredients>
+                            {
+                                tags.map(tag => (
+                                    <Tag key={String(tag.id)}>
+                                        {tag.name}
+                                    </Tag>
+                                ))
+                            }
+                        </Ingredients>
+                    }
 
+                    {
+                        isAdmin ? (
                             <Button
-                                icon={Receipt}
-                                text={`pedir ∙ R$ ${product.price}`}
+                                text="Editar prato"
                                 padding="1.2rem 0"
+                                $margin="4.8rem 0 0 0"
                             />
-                        </Request>
-                    )
-                }
+                        ) : (
+                            <Request>
+                                <Count>
+                                    <DynamicButton
+                                        icon={Minus}
+                                        iconSize={27}
+                                    />
+                                    01
+                                    <DynamicButton
+                                        icon={Plus}
+                                        iconSize={27}
+                                    />
+                                </Count>
 
+                                <Button
+                                    icon={Receipt}
+                                    text={`pedir ∙ R$ ${product.price}`}
+                                    padding="1.2rem 0"
+                                    maxWidth="16.2rem"
+                                />
+                            </Request>
+                        )
+                    }
+                </ProductInfoWrapper>
             </Main>
 
             <Footer />
