@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import theme from "../../styles/theme";
 import { Link } from "react-router-dom";
 
 export const Container = styled.section`
@@ -10,13 +11,18 @@ export const Container = styled.section`
         font-weight: 500;
         margin: 0 0 2.4rem 2.4rem;
     }
+
+    .cards-container {
+        display: flex;
+        gap: 1.6rem;
+        padding-right: 2.4rem;
+    }
 `
 
 export const List = styled.div`
     display: flex;
-    padding: 0 2.4rem;
     overflow: auto;
-    gap: 1.6rem;
+    scroll-behavior: smooth;
 
     &::-webkit-scrollbar {
         display: none;
@@ -27,7 +33,11 @@ export const Card = styled.div`
     background: ${({theme}) => theme.COLORS.DARK_200};
     border: 1px solid ${({theme}) => theme.COLORS.DARK_300};
     border-radius: .8rem;
-
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
     position: relative;
     padding: 2.4rem;
     min-width: 21rem;
@@ -37,11 +47,15 @@ export const DishInfo = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
     gap: 1.2rem;
 
     > img {
         width: 8.8rem;
         height: 8.8rem;
+        border-radius: 50%;
     }
 
     > h2 {

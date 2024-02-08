@@ -2,7 +2,9 @@ import styled from "styled-components";
 import theme from "../../styles/theme";
 
 export const Container = styled.div`
-    
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 `
 
 export const Requests = styled.div`
@@ -31,6 +33,11 @@ export const RequestsCount = styled.div`
     font-weight: 500;
 `
 
+export const Main = styled.main`
+    margin-right: clamp(1.6rem, -4rem + 9vw, 12.4rem);
+    margin-left: clamp(3.6rem, -4rem + 9vw, 12.4rem);
+`
+
 export const Banner = styled.section`
     background: ${({theme}) => theme.COLORS.GRADIENTS_100};
     border-radius: .8rem;
@@ -40,9 +47,7 @@ export const Banner = styled.section`
 
     position: relative;
     margin-top: clamp(4.4rem, 0.5rem + 12vw , 17.2rem);
-    margin-right: clamp(1.6rem, -4rem + 9vw, 12.4rem);
     margin-bottom: 6.2rem;
-    margin-left: clamp(3.6rem, -4rem + 9vw, 12.4rem);
     padding-left: clamp(15.3rem, 2.5rem + 33vw, 60rem);
     padding-right: 1.5rem;
     height: clamp(12rem, 1rem + 19vw, 26rem);

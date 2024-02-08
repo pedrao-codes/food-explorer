@@ -1,4 +1,4 @@
-import { Container, Banner } from "./styles";
+import { Container, Main, Banner } from "./styles";
 
 import { useMenu } from "../../hooks/menu";
 import { useProducts } from "../../hooks/products";
@@ -25,23 +25,22 @@ export function Home() {
 
             <HeaderUser toggleMenu={toggleMenu} />
 
-            <Banner>
-                <img src="../../../assets/colorful_cookies.png" alt="bolachas coloridas"/>
-
-                <h1>Sabores inigualáveis</h1>
-                <p> Sinta o cuidado do preparo com ingredientes selecionados</p>
-            </Banner>
-
-            {
-                categories.map(category => {
-                    const productsByCategory = 
-                        Object.values(products).filter(product => (
-                            product.category == category
-                        ))
-
-                    return <DishList key={category} title={category} dishes={productsByCategory} />
-                })
-            }
+            <Main>
+                <Banner>
+                    <img src="../../../assets/colorful_cookies.png" alt="bolachas coloridas"/>
+                    <h1>Sabores inigualáveis</h1>
+                    <p> Sinta o cuidado do preparo com ingredientes selecionados</p>
+                </Banner>
+                {
+                    categories.map(category => {
+                        const productsByCategory =
+                            Object.values(products).filter(product => (
+                                product.category == category
+                            ))
+                        return <DishList key={category} title={category} dishes={productsByCategory} />
+                    })
+                }
+            </Main>
 
             <Footer />
         </Container>
