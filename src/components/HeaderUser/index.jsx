@@ -41,8 +41,14 @@ export function HeaderUser({toggleMenu}) {
             
             {
                 isAdmin 
-                ? (<LogoAdmin width="auto" height="2.5rem" />)
-                : (<Logo width="auto" height="2.5rem" />)
+                ? (
+                    <LogoAdmin
+                        width={!MDBreakpoint ? "auto" : "100%"} 
+                        height="2.5rem"
+                    />
+                ) : (
+                    <Logo width="auto" height="2.5rem" />
+                )
             }
 
             {
