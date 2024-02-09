@@ -54,14 +54,18 @@ export function DishList({title, dishes}) {
         }
     }
 
-    function handleDishNavigate(productId) {
-        navigate(`/dish/${productId}`)
-    }
-
     function findImage(dish) {
         const productImgUrl = dish.image ? `${api.defaults.baseURL}/files/${dish.image}` : productPlaceholder
 
         return productImgUrl
+    }
+
+    function handleDishNavigate(productId) {
+        navigate(`/dish/${productId}`)
+    }
+
+    function handleDishEdit(productId) {
+        navigate(`/dish/edit/${productId}`)
     }
 
     return(
@@ -111,6 +115,7 @@ export function DishList({title, dishes}) {
                                                 top: "1.6rem",
                                                 right: "1.6rem"
                                             }}
+                                            onClick={() => handleDishEdit(dish.product_id)}
                                         />
 
                                         <DishInfo>
@@ -124,7 +129,10 @@ export function DishList({title, dishes}) {
                                                 onClick={() => handleDishNavigate(dish.product_id)}
                                             />
                     
-                                            <Price $isAdmin={isAdmin}>{dish.price}</Price>
+                                            <Price $isAdmin={isAdmin}>
+                                                {dish.price}
+                                            </Price>
+
                                             <Controls $isAdmin={isAdmin}>
                                                 <Count>
                                                     <DynamicButton
@@ -137,6 +145,7 @@ export function DishList({title, dishes}) {
                                                         iconSize={24}
                                                     />
                                                 </Count>
+
                                                 <Button
                                                     text="incluir"
                                                     padding="1.2rem 0"

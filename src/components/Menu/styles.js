@@ -32,6 +32,13 @@ export const Navigation = styled.nav`
             padding: 1rem;
             width: 100%;
             border-bottom: 1px solid ${({theme}) => theme.COLORS.DARK_1000};
+            cursor: pointer;
+            transition: color 200ms;
+
+            &:hover {
+                color: ${({theme}) => theme.COLORS.LIGHT_500};
+                text-decoration: underline;
+            }
         }
     }
 `

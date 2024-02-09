@@ -5,15 +5,16 @@ import { Menu } from "../../components/Menu";
 import { HeaderUser } from "../../components/HeaderUser";
 import { DynamicButton } from "../../components/DynamicButton";
 import { Input } from "../../components/Input";
+import { InputFile } from "../../components/InputFile";
 import { Button } from "../../components/Button";
 import { Footer } from "../../components/Footer";
 
-import { CaretLeft, UploadSimple } from "@phosphor-icons/react"
+import { CaretLeft } from "@phosphor-icons/react"
 
 import { useMenu } from "../../hooks/menu";
 import { useNavigate } from "react-router-dom";
 
-export function DishForm({ formType="criar" }) {
+export function DishForm({ create=true }) {
     const { menu, toggleMenu } = useMenu()
     const navigate = useNavigate()
 
@@ -40,15 +41,19 @@ export function DishForm({ formType="criar" }) {
                         />
                 </WrapButton>
                 
-                {formType === "criar" && <h1>Novo prato</h1>}
-                
-                {formType === "editar" && <h1>Editar prato</h1>}
+                {
+                    create
+                    ? <h1>Novo prato</h1> 
+                    : <h1>Editar prato</h1>
+                }
 
-                <Input 
-                    icon={UploadSimple}
+                <InputFile 
                     label="Imagem do prato"
-                    type="file"
-                    placeholder=""
+                    placeholder={
+                        create
+                        ? "Selecione imagem"
+                        : "Selecione imagem para alterá-la"
+                    }
                 />
 
                 <Input 
@@ -84,7 +89,7 @@ export function DishForm({ formType="criar" }) {
 
                 <Controls>
                     {
-                        formType == "editar" &&
+                        !create &&
                         <Button
                             text="Excluir prato"
                             padding="1.2rem 0"

@@ -1,5 +1,5 @@
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints"
+import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 
 import { Requests, RequestsCount, HeaderComponentsWrapper } from "./styles";
 
@@ -26,6 +26,10 @@ export function HeaderUser({toggleMenu}) {
     function handleSignOut() {
         signOut()
         navigate("/")
+    }
+
+    function handleCreateDish() {
+        navigate("/dish/create")
     }
 
     return(
@@ -66,6 +70,7 @@ export function HeaderUser({toggleMenu}) {
                         text={isAdmin ? "Novo prato" : `Pedidos (0)`}
                         padding="1.2rem 0"
                         maxWidth="15.2rem"
+                        onClick={isAdmin ? handleCreateDish : null}
                     />
 
                     <DynamicButton

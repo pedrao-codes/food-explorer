@@ -22,6 +22,7 @@ export function Menu({toggleMenu}) {
     }
 
     function handleCreateDish() {
+        toggleMenu()
         navigate("/dish/create")
     }
 

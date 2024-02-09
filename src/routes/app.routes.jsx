@@ -9,8 +9,8 @@ export function AppRoutes() {
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/dish/:id" element={<Dish />} />
-            <Route path="/dish/create" element={<DishForm />} />
-            <Route path="/dish/edit/:id" element={<DishForm />} />
+            <Route path="/dish/create" element={<DishForm create={true} />} />
+            <Route path="/dish/edit/:id" element={<DishForm create={false} />} />
         </Routes>
     )
 }
