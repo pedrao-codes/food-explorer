@@ -41,6 +41,6 @@ export const Content = styled.div`
 
     > svg {
         width: 2.4rem;
-        height: 2.4rem;
+        height: auto;
     }
 `
