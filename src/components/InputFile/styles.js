@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import theme from "../../styles/theme"
+import theme from "../../styles/theme";
 
 export const Container = styled.div`
     display: flex;
@@ -27,6 +27,7 @@ export const Wrapper = styled.div`
         font-size: 1.4rem;
         padding: 1.2rem 3.2rem;
         overflow: hidden;
+        cursor: pointer;
 
         > svg {
             color: ${({theme}) => theme.COLORS.LIGHT_100};
@@ -37,6 +38,5 @@ export const Wrapper = styled.div`
 
     > input {
         display: none;
-        color: ${({theme}) => theme.COLORS.LIGHT_100};
     }
 `

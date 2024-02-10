@@ -6,6 +6,7 @@ import { HeaderUser } from "../../components/HeaderUser";
 import { DynamicButton } from "../../components/DynamicButton";
 import { Input } from "../../components/Input";
 import { InputFile } from "../../components/InputFile";
+import { Select } from "../../components/Select";
 import { Button } from "../../components/Button";
 import { Footer } from "../../components/Footer";
 
@@ -62,10 +63,8 @@ export function DishForm({ create=true }) {
                     placeholder="Ex.: Salada Ceasar"
                 />
 
-                <Input 
+                <Select
                     label="Categoria"
-                    type="text"
-                    placeholder="Refeição"
                 />
 
                 <Input 
