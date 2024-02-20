@@ -14,6 +14,7 @@ export const Form = styled.form`
     flex-direction: column;
     gap: 2.4rem;
     padding: 1.0rem 3.2rem 5.2rem;
+    align-items: center;
 
     > h1 {
         color: ${({theme}) => theme.COLORS.LIGHT_300};

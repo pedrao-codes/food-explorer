@@ -7,6 +7,8 @@ import { DynamicButton } from "../../components/DynamicButton";
 import { Input } from "../../components/Input";
 import { InputFile } from "../../components/InputFile";
 import { Select } from "../../components/Select";
+import { InputTag } from "../../components/InputTag";
+import { TextArea } from "../../components/TextArea";
 import { Button } from "../../components/Button";
 import { Footer } from "../../components/Footer";
 
@@ -44,7 +46,7 @@ export function DishForm({ create=true }) {
                 
                 {
                     create
-                    ? <h1>Novo prato</h1> 
+                    ? <h1>Novo prato</h1>
                     : <h1>Editar prato</h1>
                 }
 
@@ -67,10 +69,8 @@ export function DishForm({ create=true }) {
                     label="Categoria"
                 />
 
-                <Input 
+                <InputTag
                     label="Ingredientes"
-                    type="text"
-                    placeholder="Pão Naan | Adicionar +"
                 />
 
                 <Input 
@@ -79,11 +79,9 @@ export function DishForm({ create=true }) {
                     placeholder="R$ 00,00"
                 />
 
-                <Input 
+                <TextArea 
                     label="Descrição"
-                    type="text"
                     placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
-                    width="14.4rem"
                 />
 
                 <Controls>
@@ -98,7 +96,7 @@ export function DishForm({ create=true }) {
 
                     <Button
                         text="Salvar alterações"
-                        padding="1.2rem 0"
+                        padding="1.2rem 2.4rem"
                     />
                 </Controls>
             </Form>
